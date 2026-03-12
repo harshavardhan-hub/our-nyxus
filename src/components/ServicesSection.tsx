@@ -92,16 +92,18 @@ function TiltCard({ title, description, Icon, index }: { title: string, descript
         rotateY,
         rotateX,
         transformStyle: "preserve-3d",
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
       }}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative h-72 md:h-80 w-full rounded-2xl bg-neutral-900 border border-neutral-800 p-8 md:p-10 flex flex-col justify-between group cursor-pointer"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+      className="tilt-card relative h-72 md:h-80 w-full rounded-2xl bg-neutral-900 border border-neutral-800 p-8 md:p-10 flex flex-col justify-between group cursor-pointer"
     >
       <div
         style={{ transform: "translateZ(50px)" }}
-        className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors duration-500"
+        className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-[background-color,color] duration-400"
       >
         <Icon size={24} />
       </div>

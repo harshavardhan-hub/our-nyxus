@@ -39,14 +39,15 @@ export default function TechStackSection() {
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-neutral-900 to-transparent z-10 pointer-events-none" />
         
         <motion.div
-           className="flex whitespace-nowrap gap-6 py-4 items-center"
+           className="marquee-track flex whitespace-nowrap gap-6 py-4 items-center"
+           style={{ backfaceVisibility: "hidden" }}
            animate={{ x: ["0%", "-50%"] }}
-           transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+           transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
         >
           {technologies.map((tech, i) => (
             <div 
               key={i} 
-              className="px-8 py-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-lg md:text-xl font-bold tracking-tight hover:bg-white/10 transition-colors cursor-default"
+              className="px-8 py-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-lg md:text-xl font-bold tracking-tight hover:bg-white/10 transition-colors duration-300 cursor-default"
             >
               {tech}
             </div>

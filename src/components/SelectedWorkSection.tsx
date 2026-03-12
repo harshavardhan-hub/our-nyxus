@@ -91,15 +91,15 @@ export default function SelectedWorkSection() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="img-zoom object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   quality={90}
                 />
               </div>
               
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-60 group-hover:opacity-80 transition-opacity duration-400" />
 
-              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 transform translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">
-                <div className="flex items-center gap-3 mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                <div className="flex items-center gap-3 mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400 delay-75">
                   <span className="px-4 py-1.5 text-xs font-bold tracking-widest text-white bg-black/40 backdrop-blur-md rounded-full border border-white/20 uppercase">
                     {project.category}
                   </span>
@@ -109,11 +109,11 @@ export default function SelectedWorkSection() {
                     <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 drop-shadow-lg">
                       {project.title}
                     </h3>
-                    <p className="text-white/90 max-w-md text-sm md:text-base opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                    <p className="text-white/90 max-w-md text-sm md:text-base opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400 delay-100">
                       {project.description}
                     </p>
                   </div>
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex-shrink-0 bg-white text-black flex items-center justify-center transform translate-y-0 opacity-100 md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 ease-out origin-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex-shrink-0 bg-white text-black flex items-center justify-center translate-y-0 opacity-100 md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-[transform,opacity] duration-500 ease-out origin-center">
                     <svg className="w-5 h-5 md:w-6 md:h-6 -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

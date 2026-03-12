@@ -7,10 +7,10 @@ export default function DifferenceSection() {
     <section className="py-32 bg-neutral-50 text-black relative overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 md:mb-24"
         >
           <span className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-6 block">
@@ -23,11 +23,11 @@ export default function DifferenceSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white p-10 md:p-12 rounded-[2rem] shadow-xl border border-black/5"
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-white p-10 md:p-12 rounded-[2rem] shadow-xl border border-black/5 hover:shadow-2xl transition-shadow duration-500"
           >
             <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center mb-8">
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,11 +41,11 @@ export default function DifferenceSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-black text-white p-10 md:p-12 rounded-[2rem] shadow-xl border border-white/5"
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-black text-white p-10 md:p-12 rounded-[2rem] shadow-xl border border-white/5 hover:shadow-2xl transition-shadow duration-500"
           >
             <div className="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center mb-8">
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

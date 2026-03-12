@@ -16,10 +16,10 @@ export default function StatsSection() {
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
-           initial={{ opacity: 0, scale: 0.9 }}
-           whileInView={{ opacity: 1, scale: 1 }}
+           initial={{ opacity: 0, y: 40 }}
+           whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           transition={{ duration: 1 }}
+           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
            className="text-center mb-24"
         >
           <span className="text-sm font-bold tracking-widest uppercase text-neutral-500 mb-6 block">
@@ -34,10 +34,10 @@ export default function StatsSection() {
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: i * 0.15 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center justify-center text-center group"
             >
                <div className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 group-hover:scale-110 transition-transform duration-500 cursor-default select-none">

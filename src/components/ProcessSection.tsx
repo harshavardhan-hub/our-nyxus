@@ -86,7 +86,7 @@ export default function ProcessSection() {
 function Card({ step, index }: { step: { num: string; title: string; desc: string; color: string }, index: number }) {
   return (
     <div 
-      className={`sticky flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] border shadow-xl transition-all duration-500 hover:shadow-2xl ${step.color} min-h-[350px]`}
+      className={`process-card sticky flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] border shadow-xl transition-shadow duration-500 hover:shadow-2xl ${step.color} min-h-[350px]`}
       style={{ top: `calc(10vh + ${index * 30}px)` }}
     >
       <div className="w-full md:w-1/3 mb-8 md:mb-0">
@@ -102,7 +102,7 @@ function Card({ step, index }: { step: { num: string; title: string; desc: strin
            {step.desc}
          </p>
          <div className="mt-8 flex items-center gap-4">
-           <div className="w-12 h-12 rounded-full border border-current flex items-center justify-center opacity-50">
+           <div className="w-12 h-12 rounded-full border border-current flex items-center justify-center opacity-50 transition-opacity duration-300 hover:opacity-80">
              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
              </svg>

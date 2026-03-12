@@ -33,6 +33,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Smooth font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   /* Disable scrollbar for Lenis smooth scroll */
@@ -42,7 +46,48 @@
   }
 }
 
-/* Lenis styles */
+/* ─── GPU compositing & performance helpers ─── */
+
+/* Force GPU layer for all framer-motion animated divs */
+[data-framer-component-type],
+[style*="transform"],
+[style*="opacity"] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Marquee / ticker – always GPU composited */
+.marquee-track {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Tilt cards – GPU hint */
+.tilt-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Hero parallax layer */
+.parallax-layer {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Sticky process cards – composited */
+.process-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Smooth image scale on hover */
+.img-zoom {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ─── Lenis smooth scroll ─── */
 html.lenis {
   height: auto;
 }
@@ -57,4 +102,14 @@ html.lenis {
 }
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* ─── Reduce motion for accessibility ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

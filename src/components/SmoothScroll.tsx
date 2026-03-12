@@ -4,7 +4,20 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.07,
+        duration: 1.4,
+        smoothWheel: true,
+        syncTouch: true,
+        touchMultiplier: 1.5,
+        infinite: false,
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        wheelMultiplier: 1,
+      }}
+    >
       {children}
     </ReactLenis>
   );

@@ -49,7 +49,7 @@ export default function HeroSection() {
     >
       <motion.div
         style={{ y, opacity, scale }}
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="parallax-layer absolute inset-0 z-0 pointer-events-none"
       >
         <Image
           src="/hero_bg_premium.png"
