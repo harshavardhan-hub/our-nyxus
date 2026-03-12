@@ -111,7 +111,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-6 md:mb-8"
+          className="mt-4 md:mt-10 mb-6 md:mb-8"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all cursor-default group">
             <span className="relative flex h-2 w-2">
