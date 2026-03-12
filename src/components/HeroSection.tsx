@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Star, Quote, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,24 +23,29 @@ export default function HeroSection() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
     },
   };
+
+  // Avatar styles
+  const avatarColors = ["bg-blue-100 text-blue-700", "bg-purple-100 text-purple-700", "bg-pink-100 text-pink-700", "bg-orange-100 text-orange-700"];
+  const avatarLetters = ["SJ", "MR", "TK", "AL"];
+  const zIndices = ["z-40", "z-30", "z-20", "z-10"];
 
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-neutral-50 selection:bg-black selection:text-white"
+      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden bg-neutral-50 selection:bg-black selection:text-white pb-16"
     >
       <motion.div 
         style={{ y, opacity, scale }}
@@ -53,107 +59,146 @@ export default function HeroSection() {
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/40 to-white/95 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/50 to-white/95 backdrop-blur-[2px]" />
+        
+        {/* Subtle dot pattern like the reference design */}
+        <div className="absolute inset-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(circle, #cbd5e1 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       </motion.div>
 
-      <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-7xl mx-auto mt-20 md:mt-0 pt-24 md:pt-0">
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="mb-8 flex flex-col items-center"
+      {/* Floating Review Cards (Left and Right) */}
+      <div className="hidden lg:block absolute left-[3%] xl:left-[6%] top-[45%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
+        <motion.div
+           initial={{ opacity: 0, x: -50, rotate: -15 }}
+           animate={{ opacity: 1, x: 0, rotate: -6 }}
+           whileHover={{ rotate: 0, scale: 1.02 }}
+           transition={{ duration: 1.2, delay: 0.8, ease: "easeOut", whileHover: { duration: 0.3 } }}
+           className="bg-white rounded-[20px] p-5 xl:p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] border border-neutral-100 relative group cursor-default"
         >
+          <Quote className="absolute top-4 right-4 w-5 h-5 xl:w-6 xl:h-6 text-neutral-100/80" fill="currentColor" />
+          <p className="text-xs xl:text-sm text-neutral-600 mb-4 xl:mb-5 leading-relaxed relative z-10 font-medium pt-2">
+            &quot;We were close to giving up. OurNyxus completely rebuilt our platform and delivered our frontend end-to-end.&quot;
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] xl:text-xs font-bold text-neutral-900">- Sarah J., CEO, TechFlow</span>
+          </div>
+        </motion.div>
+      </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-white/50 backdrop-blur-md shadow-sm"
-          >
+      <div className="hidden lg:block absolute right-[3%] xl:right-[6%] top-[55%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
+        <motion.div
+           initial={{ opacity: 0, x: 50, rotate: 15 }}
+           animate={{ opacity: 1, x: 0, rotate: 6 }}
+           whileHover={{ rotate: 0, scale: 1.02 }}
+           transition={{ duration: 1.2, delay: 1, ease: "easeOut", whileHover: { duration: 0.3 } }}
+           className="bg-white rounded-[20px] p-5 xl:p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] border border-neutral-100 relative group cursor-default"
+        >
+          <Quote className="absolute top-4 right-4 w-5 h-5 xl:w-6 xl:h-6 text-neutral-100/80" fill="currentColor" />
+          <p className="text-xs xl:text-sm text-neutral-600 mb-4 xl:mb-5 leading-relaxed relative z-10 font-medium pt-2">
+             &quot;OurNyxus brought our vision to life: an AI-powered platform with an award-winning UI/UX experience.&quot;
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] xl:text-xs font-bold text-neutral-900">- Michael R., Founder, Elevate</span>
+          </div>
+        </motion.div>
+      </div>
+
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center px-4 md:px-6 w-full max-w-5xl mx-auto pt-32 pb-12">
+        
+        {/* Top Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all cursor-default group">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span className="text-xs font-semibold tracking-wide uppercase text-neutral-800">
-              OurNyxus Agency
+            <span className="text-xs font-semibold tracking-wide text-neutral-700">
+              Only 2 open slots available!
             </span>
-          </motion.div>
+            <ArrowRight className="w-3 h-3 text-neutral-400 group-hover:translate-x-1 transition-transform" />
+          </div>
         </motion.div>
 
+        {/* Heading */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center w-full max-w-5xl"
+          className="text-center w-full relative z-30 flex flex-col items-center"
         >
-          <div className="flex flex-col items-center justify-center w-full">
-            <div className="overflow-hidden pb-2 md:pb-4 w-full">
-              <motion.h1 
-                variants={itemVariants}
-                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
+          <div className="w-full relative">
+            <motion.h1 
+              variants={itemVariants}
+              className="text-[11vw] sm:text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1.05] font-bold tracking-tight text-neutral-900 mx-auto w-full text-center max-w-4xl"
+            >
+              World-Class Digital Agency
+              <br/>
+              Crafting Next-Gen{" "}
+              <motion.span 
+                initial={{ rotate: -20, scale: 0.5, opacity: 0 }} 
+                animate={{ rotate: 5, scale: 1, opacity: 1 }} 
+                whileHover={{ rotate: 0, scale: 1.1 }}
+                transition={{ delay: 1, type: "spring", stiffness: 200 }} 
+                className="inline-flex items-center justify-center bg-black text-white p-2 md:p-3 rounded-xl md:rounded-2xl mx-1 align-middle shadow-xl cursor-default"
               >
-                WE CRAFT
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden pb-2 md:pb-4 w-full">
-              <motion.h1 
-                variants={itemVariants}
-                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
-              >
-                NEXT-GEN
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden pb-4 w-full">
-               <motion.h1 
-                variants={itemVariants}
-                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
-              >
-                PRODUCTS.
-              </motion.h1>
-            </div>
+                <Sparkles strokeWidth={2.5} className="w-5 h-5 md:w-8 md:h-8 text-white" />
+              </motion.span>{" "}
+              Products
+            </motion.h1>
           </div>
 
-          <motion.div variants={itemVariants} className="mt-8 md:mt-12 flex justify-center">
-            <p className="text-lg md:text-xl lg:text-2xl text-neutral-600 max-w-3xl font-medium leading-relaxed">
+          <motion.div variants={itemVariants} className="mt-6 md:mt-8 flex justify-center w-full">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-600 max-w-2xl font-medium leading-relaxed px-4 md:px-0">
               We build the latest SaaS products and premium websites — designed, developed, deployed, managed, SEO optimized, and we grow business customers for our clients end to end.
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          {/* CTA Group */}
+          <motion.div variants={itemVariants} className="mt-10 md:mt-12 flex flex-col items-center justify-center gap-8 md:gap-10 w-full relative z-40">
             <Link 
               href="#contact" 
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-300 bg-black rounded-full hover:bg-neutral-800 hover:scale-105 hover:shadow-2xl hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black w-full sm:w-auto"
+              className="group relative flex items-center justify-center px-1 text-base font-semibold text-white transition-all duration-300 bg-neutral-900 rounded-full hover:bg-black shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black h-14 pr-8 pl-1 w-[220px]"
             >
-              <span className="mr-2">Start a Project</span>
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+               <motion.div 
+                  className="bg-[#2a66ff] rounded-full w-12 h-12 flex items-center justify-center absolute left-1"
+                  layoutId="cta-icon"
+               >
+                 <ArrowRight strokeWidth={2.5} className="w-5 h-5 text-white" />
+               </motion.div>
+              <span className="ml-[44px] tracking-wide font-bold">Start a Project</span>
             </Link>
             
-            <Link 
-              href="#work" 
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-black transition-all duration-300 bg-white border border-neutral-200 rounded-full hover:bg-neutral-50 hover:scale-105 hover:shadow-xl w-full sm:w-auto"
-            >
-              <span className="relative">View Our Work</span>
-            </Link>
+            {/* Reviews / Avatars */}
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex -space-x-3 hover:space-x-1 transition-all duration-300 cursor-default">
+                 {avatarLetters.map((letter, i) => (
+                    <div key={i} className={`w-10 h-10 rounded-full border-2 border-white ${avatarColors[i]} flex items-center justify-center text-xs font-bold relative ${zIndices[i]} shadow-sm hover:-translate-y-1 transition-transform`}>
+                        {letter}
+                    </div>
+                 ))}
+                 <div className="w-10 h-10 rounded-full border-2 border-white bg-neutral-100 flex items-center justify-center text-xs font-bold text-neutral-600 z-0 shadow-sm relative">
+                    +30
+                 </div>
+              </div>
+              <div className="flex flex-col items-center gap-1.5 cursor-default group">
+                 <div className="flex gap-1 text-[#FFB800]">
+                   {[1,2,3,4,5].map((i) => (
+                      <Star key={i} className="w-4 h-4" fill="currentColor" strokeWidth={0} />
+                   ))}
+                 </div>
+                 <span className="text-[10px] md:text-xs text-neutral-500 font-bold tracking-wider uppercase group-hover:text-neutral-700 transition-colors">From 30+ reviews</span>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      <motion.div 
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         transition={{ delay: 2, duration: 1 }}
-         className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
-      >
-        <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-400">Discover</span>
-        <div className="w-[1px] h-12 md:h-16 bg-neutral-200 relative overflow-hidden">
-          <motion.div 
-            className="absolute top-0 left-0 w-full h-[50%] bg-black"
-            animate={{ y: ['-100%', '200%'] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
