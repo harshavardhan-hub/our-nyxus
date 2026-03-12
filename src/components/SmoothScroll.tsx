@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ReactLenis } from "@studio-freight/react-lenis";
+import { ReactLenis, useLenis as useReactLenis } from "@studio-freight/react-lenis";
+import { LenisProvider } from "@/context/LenisContext";
+
+function LenisSync({ children }: { children: React.ReactNode }) {
+  const lenis = useReactLenis();
+  return <LenisProvider value={lenis ?? null}>{children}</LenisProvider>;
+}
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Detect touch/mobile device — native scroll is already smooth on phones
     const check = () =>
       setIsMobile(
         window.matchMedia("(pointer: coarse)").matches ||
@@ -16,12 +21,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     check();
   }, []);
 
-  // On mobile: render children without Lenis so the OS handles scrolling natively
   if (isMobile) {
-    return <>{children}</>;
+    return <LenisProvider value={null}>{children}</LenisProvider>;
   }
 
-  // On desktop: keep the full Lenis smooth-scroll experience
   return (
     <ReactLenis
       root
@@ -36,7 +39,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         wheelMultiplier: 1,
       }}
     >
-      {children}
+      <LenisSync>{children}</LenisSync>
     </ReactLenis>
   );
 }
