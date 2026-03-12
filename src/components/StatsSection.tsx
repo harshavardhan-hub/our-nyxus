@@ -25,7 +25,7 @@ export default function StatsSection() {
           <span className="text-sm font-bold tracking-widest uppercase text-neutral-500 mb-6 block">
             A Number That Tells Our Story
           </span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter">
+          <h2 className="text-4xl md:text-6xl lg:text-[56px] xl:text-[68px] font-black tracking-tighter">
             PROVEN BY <span className="text-neutral-500">SCALE.</span>
           </h2>
         </motion.div>
@@ -40,7 +40,7 @@ export default function StatsSection() {
               transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center justify-center text-center group"
             >
-               <div className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 group-hover:scale-110 transition-transform duration-500 cursor-default select-none">
+               <div className="text-6xl md:text-7xl lg:text-[64px] xl:text-[76px] font-black tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 group-hover:scale-110 transition-transform duration-500 cursor-default select-none">
                  {stat.value}
                </div>
                <div className="text-lg md:text-xl font-bold text-neutral-400">

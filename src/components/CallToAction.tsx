@@ -29,7 +29,7 @@ export default function CallToAction() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl md:text-9xl font-black text-white px-4 tracking-tighter"
+            className="text-6xl md:text-9xl lg:text-[68px] xl:text-[88px] font-black text-white px-4 tracking-tighter"
           >
             LET&apos;S TALK.
           </motion.h2>

@@ -16,7 +16,7 @@ export default function DifferenceSection() {
           <span className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-6 block">
             What Makes Us Different
           </span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
+          <h2 className="text-5xl md:text-7xl lg:text-[56px] xl:text-[68px] font-black tracking-tighter leading-[0.9]">
             YOUR GROWTH IS <br className="hidden md:block" /> OUR MISSION.
           </h2>
         </motion.div>
@@ -34,7 +34,7 @@ export default function DifferenceSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">No Corporate BS.</h3>
+            <h3 className="text-3xl md:text-4xl lg:text-[32px] xl:text-[38px] font-bold mb-6 tracking-tight">No Corporate BS.</h3>
             <p className="text-neutral-500 text-lg md:text-xl font-medium leading-relaxed">
               Most agencies will sell you a template and disappear when the check clears. We don&apos;t do that. We build bespoke, high-performance engines designed specifically for your growth. Honest communication, transparent pricing, and absolutely zero middle-men.
             </p>
@@ -52,7 +52,7 @@ export default function DifferenceSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Engineering First.</h3>
+            <h3 className="text-3xl md:text-4xl lg:text-[32px] xl:text-[38px] font-bold mb-6 tracking-tight">Engineering First.</h3>
             <p className="text-neutral-300 text-lg md:text-xl font-medium leading-relaxed">
               We aren&apos;t just pushing pixels. We are full-stack engineers obsessed with performance, cutting-edge architecture, and highly scalable code. Your product won&apos;t just look like an Awwwards winner — it will load in milliseconds and scale to millions seamlessly.
             </p>

@@ -53,7 +53,7 @@ export default function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter"
+          className="text-5xl md:text-7xl lg:text-[56px] xl:text-[68px] font-black tracking-tighter"
         >
           OUR <span className="text-neutral-400">PROCESS.</span>
         </motion.h2>
@@ -62,7 +62,7 @@ export default function ProcessSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 1 }}
-            className="mt-6 text-xl md:text-2xl text-neutral-500 font-medium max-w-3xl"
+            className="mt-6 text-xl md:text-2xl lg:text-xl xl:text-2xl text-neutral-500 font-medium max-w-3xl"
         >
           A proven methodology to transform complex ideas into beautifully engineered digital reality.
         </motion.p>
@@ -93,7 +93,7 @@ function Card({ step, index }: { step: { num: string; title: string; desc: strin
          <span className="text-6xl md:text-8xl font-black opacity-20 tracking-tighter block mb-4">
            {step.num}
          </span>
-         <h3 className="text-3xl md:text-5xl font-bold tracking-tight">
+         <h3 className="text-3xl md:text-5xl lg:text-[36px] xl:text-[42px] font-bold tracking-tight">
            {step.title}
          </h3>
       </div>

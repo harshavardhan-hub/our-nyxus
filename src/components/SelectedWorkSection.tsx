@@ -61,7 +61,7 @@ export default function SelectedWorkSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter"
+            className="text-5xl md:text-7xl lg:text-[56px] xl:text-[68px] font-black tracking-tighter"
           >
             SELECTED <span className="text-neutral-300">WORK.</span>
           </motion.h2>
@@ -70,7 +70,7 @@ export default function SelectedWorkSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 1 }}
-            className="mt-6 text-lg md:text-2xl text-neutral-500 font-medium max-w-2xl"
+            className="mt-6 text-lg md:text-2xl lg:text-lg xl:text-xl text-neutral-500 font-medium max-w-2xl"
           >
             A curated showcase of our most impactful digital projects, engineered for growth and designed to inspire.
           </motion.p>
@@ -106,7 +106,7 @@ export default function SelectedWorkSection() {
                 </div>
                 <div className="flex justify-between items-end gap-4">
                   <div>
-                    <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 drop-shadow-lg">
+                    <h3 className="text-3xl md:text-5xl lg:text-[32px] xl:text-[40px] font-bold text-white tracking-tight mb-2 drop-shadow-lg">
                       {project.title}
                     </h3>
                     <p className="text-white/90 max-w-md text-sm md:text-base opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400 delay-100">

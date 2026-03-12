@@ -50,7 +50,7 @@ export default function FaqSection() {
           <span className="text-sm font-bold tracking-widest uppercase text-neutral-400 mb-6 block">
             Frequently Asked Questions
           </span>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter">
+          <h2 className="text-5xl md:text-7xl lg:text-[56px] xl:text-[68px] font-black tracking-tighter">
             YOUR QUESTIONS, <br /> <span className="text-neutral-400">ANSWERED.</span>
           </h2>
         </motion.div>
@@ -71,7 +71,7 @@ export default function FaqSection() {
                   onClick={() => toggleOpen(index)}
                   className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none focus:ring-2 focus:ring-black/5"
                 >
-                  <span className="text-lg md:text-2xl font-bold pr-8 tracking-tight">
+                  <span className="text-lg md:text-2xl lg:text-xl xl:text-2xl font-bold pr-8 tracking-tight">
                     {faq.question}
                   </span>
                   <motion.div

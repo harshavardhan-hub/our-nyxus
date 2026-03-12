@@ -40,8 +40,8 @@ export default function ServicesSection() {
     <section ref={targetRef} className="relative h-[400vh] bg-neutral-950 text-white" id="services">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 mb-12 md:mb-20 shrink-0">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Expertise.</h2>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl">
+          <h2 className="text-4xl md:text-6xl lg:text-[56px] xl:text-[68px] font-bold tracking-tight mb-6">Expertise.</h2>
+          <p className="text-lg md:text-xl lg:text-lg xl:text-xl text-neutral-400 max-w-2xl">
             We don&apos;t just build websites. We engineer premium digital experiences that command attention and drive growth.
           </p>
         </div>
@@ -119,7 +119,7 @@ function TiltCard({ title, description, Icon, index }: { title: string, descript
       </div>
 
       <div style={{ transform: "translateZ(30px)" }}>
-        <h3 className="text-2xl font-bold mb-3">{title}</h3>
+        <h3 className="text-2xl lg:text-[22px] xl:text-[26px] font-bold mb-3">{title}</h3>
         <p className="text-neutral-400">{description}</p>
       </div>
 
