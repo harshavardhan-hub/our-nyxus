@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { MonitorSmartphone, Rocket, TrendingUp, ShieldCheck } from "lucide-react";
 
@@ -28,21 +28,31 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"]
+  });
+
+  const x = useTransform(scrollYProgress, (pos) => `calc(-${pos * 100}% + ${pos * 100}vw)`);
+
   return (
-    <section className="py-32 px-6 md:px-12 bg-neutral-950 text-white min-h-[100dvh] flex flex-col justify-center" id="services">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="mb-20">
+    <section ref={targetRef} className="relative h-[400vh] bg-neutral-950 text-white" id="services">
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 mb-12 md:mb-20 shrink-0">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Expertise.</h2>
           <p className="text-lg md:text-xl text-neutral-400 max-w-2xl">
             We don&apos;t just build websites. We engineer premium digital experiences that command attention and drive growth.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <motion.div style={{ x }} className="flex w-max gap-6 lg:gap-8 px-6 md:px-12 items-center">
           {services.map((svc, i) => (
-            <TiltCard key={i} title={svc.title} description={svc.description} Icon={svc.icon} index={i} />
+            <div key={i} className="w-[85vw] md:w-[450px] lg:w-[500px] shrink-0">
+              <TiltCard title={svc.title} description={svc.description} Icon={svc.icon} index={i} />
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
