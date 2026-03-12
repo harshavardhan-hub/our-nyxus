@@ -64,15 +64,7 @@ export default function HeroSection() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="mb-8 flex flex-col items-center"
         >
-          <div className="relative w-16 h-16 md:w-20 md:h-20 mb-4 drop-shadow-2xl">
-            <Image
-              src="/logo.png"
-              alt="OurNyxus Logo"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,42 +87,31 @@ export default function HeroSection() {
           animate="visible"
           className="text-center w-full max-w-5xl"
         >
-          <div className="overflow-hidden pb-4">
-            <motion.h1 
-              variants={itemVariants}
-              className="text-[12vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter text-black"
-            >
-              WE CRAFT
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden pb-4 flex justify-center items-center gap-4 md:gap-8 flex-wrap">
-            <motion.h1 
-              variants={itemVariants}
-              className="text-[12vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter text-black"
-            >
-              NEXT-GEN
-            </motion.h1>
-            <motion.div 
-              variants={itemVariants}
-              className="hidden md:flex flex-col items-start justify-center h-[5vw] px-6 py-2 bg-black text-white rounded-full translate-y-[-1vw] shadow-2xl"
-            >
-              <span className="text-sm lg:text-base font-medium tracking-wide">DIGITAL</span>
-              <span className="text-sm lg:text-base font-medium tracking-wide -mt-1">EXPERIENCES</span>
-            </motion.div>
-          </div>
-          <div className="overflow-hidden pb-4">
-            <motion.h1 
-              variants={itemVariants}
-              className="text-[12vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 to-neutral-500 md:hidden"
-            >
-              EXPERIENCES.
-            </motion.h1>
-             <motion.h1 
-              variants={itemVariants}
-              className="hidden md:block text-[12vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] font-black tracking-tighter text-black"
-            >
-              PRODUCTS.
-            </motion.h1>
+          <div className="flex flex-col items-center justify-center w-full">
+            <div className="overflow-hidden pb-2 md:pb-4 w-full">
+              <motion.h1 
+                variants={itemVariants}
+                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
+              >
+                WE CRAFT
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden pb-2 md:pb-4 w-full">
+              <motion.h1 
+                variants={itemVariants}
+                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
+              >
+                NEXT-GEN
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden pb-4 w-full">
+               <motion.h1 
+                variants={itemVariants}
+                className="text-[14vw] md:text-[9vw] lg:text-[8vw] leading-[0.85] font-black tracking-tighter text-black mx-auto w-full text-center"
+              >
+                PRODUCTS.
+              </motion.h1>
+            </div>
           </div>
 
           <motion.div variants={itemVariants} className="mt-8 md:mt-12 flex justify-center">

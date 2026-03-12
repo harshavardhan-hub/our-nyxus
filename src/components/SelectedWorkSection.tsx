@@ -84,7 +84,7 @@ export default function SelectedWorkSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-              className={`group relative rounded-[2rem] overflow-hidden bg-neutral-100 ${project.colSpan} aspect-[4/3] md:aspect-auto md:min-h-[500px] cursor-pointer`}
+              className={`group relative rounded-[2rem] overflow-hidden bg-neutral-100 ${project.colSpan} min-h-[400px] md:min-h-[500px] cursor-pointer`}
             >
               <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <Image
@@ -96,24 +96,24 @@ export default function SelectedWorkSection() {
                 />
               </div>
               
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 md:opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-              <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="flex items-center gap-3 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 transform translate-y-0 md:translate-y-8 md:group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-center gap-3 mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-100">
                   <span className="px-4 py-1.5 text-xs font-bold tracking-widest text-white bg-black/40 backdrop-blur-md rounded-full border border-white/20 uppercase">
                     {project.category}
                   </span>
                 </div>
-                <div className="flex justify-between items-end">
+                <div className="flex justify-between items-end gap-4">
                   <div>
                     <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-2 drop-shadow-lg">
                       {project.title}
                     </h3>
-                    <p className="text-white/90 max-w-md text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                    <p className="text-white/90 max-w-md text-sm md:text-base opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 delay-200">
                       {project.description}
                     </p>
                   </div>
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white text-black flex items-center justify-center transform translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out origin-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex-shrink-0 bg-white text-black flex items-center justify-center transform translate-y-0 opacity-100 md:translate-y-12 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 ease-out origin-center">
                     <svg className="w-5 h-5 md:w-6 md:h-6 -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

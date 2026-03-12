@@ -64,16 +64,16 @@ function TiltCard({ title, description, Icon, index }: { title: string, descript
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
-    
+
     const width = rect.width;
     const height = rect.height;
-    
+
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
-    
+
     x.set(xPct);
     y.set(yPct);
   };
@@ -99,7 +99,7 @@ function TiltCard({ title, description, Icon, index }: { title: string, descript
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative h-72 md:h-80 w-full rounded-2xl bg-neutral-900 border border-neutral-800 p-8 md:p-10 flex flex-col justify-between group cursor-pointer"
     >
-      <div 
+      <div
         style={{ transform: "translateZ(50px)" }}
         className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors duration-500"
       >
@@ -112,7 +112,7 @@ function TiltCard({ title, description, Icon, index }: { title: string, descript
       </div>
 
       {/* Decorative Blur */}
-      <div 
+      <div
         style={{ transform: "translateZ(-50px)" }}
         className="absolute inset-x-0 -bottom-10 h-1/2 bg-white/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
       />

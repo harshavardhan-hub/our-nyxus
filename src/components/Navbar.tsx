@@ -9,7 +9,8 @@ const navLinks = [
   { name: "Work", href: "#work" },
   { name: "Process", href: "#process" },
   { name: "Services", href: "#services" },
-  { name: "Team", href: "#team" }
+  { name: "Team", href: "#team" },
+  { name: "FAQ", href: "#faq" }
 ];
 
 export default function Navbar() {
@@ -46,7 +47,7 @@ export default function Navbar() {
           </div>
           <span className="font-bold text-lg tracking-tight group-hover:opacity-70 transition-opacity text-black">OurNyxus</span>
         </Link>
-        
+
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-black">
           {navLinks.map((item) => (
             <Link
@@ -67,19 +68,19 @@ export default function Navbar() {
         <Link href="#contact" className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-black rounded-full hover:scale-105 transition-transform duration-300 ease-out z-[60]">
           Get in touch
         </Link>
-        
-        <button 
+
+        <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 z-[60] group"
           aria-label="Toggle Menu"
         >
-          <motion.span 
+          <motion.span
             animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="w-6 h-0.5 bg-black mb-1.5 transition-colors" 
+            className="w-6 h-0.5 bg-black mb-1.5 transition-colors"
           />
-          <motion.span 
+          <motion.span
             animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="w-6 h-0.5 bg-black transition-colors" 
+            className="w-6 h-0.5 bg-black transition-colors"
           />
         </button>
       </motion.header>
@@ -93,25 +94,25 @@ export default function Navbar() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-[50] bg-white flex flex-col justify-center px-6 pt-24 pb-12 overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6 mt-auto mb-auto">
+            <nav className="flex flex-col gap-4 md:gap-6 mt-auto mb-auto">
               {navLinks.map((item, i) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
+                  transition={{ delay: 0.2 + (i * 0.05), duration: 0.5 }}
                 >
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-5xl font-black tracking-tighter text-black hover:text-neutral-500 transition-colors block"
+                    className="text-4xl md:text-5xl font-black tracking-tighter text-black hover:text-neutral-500 transition-colors block py-1"
                   >
                     {item.name}
                   </Link>
                 </motion.div>
               ))}
             </nav>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

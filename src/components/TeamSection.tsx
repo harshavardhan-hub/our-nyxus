@@ -38,7 +38,7 @@ export default function TeamSection() {
 function TeamRow({ member }: { member: { name: string, role: string, image: string } }) {
   const [isHovered, setIsHovered] = useState(false);
   const rowRef = useRef<HTMLDivElement>(null);
-  
+
   // Magnetic effect state
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -51,7 +51,7 @@ function TeamRow({ member }: { member: { name: string, role: string, image: stri
   };
 
   return (
-    <div 
+    <div
       ref={rowRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -68,10 +68,10 @@ function TeamRow({ member }: { member: { name: string, role: string, image: stri
       {/* Hover Image Reveal */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ 
-          opacity: isHovered ? 1 : 0, 
+        animate={{
+          opacity: isHovered ? 1 : 0,
           scale: isHovered ? 1 : 0.8,
-          x: mousePosition.x - 150, 
+          x: mousePosition.x - 150,
           y: mousePosition.y - 150,
         }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -88,7 +88,7 @@ function TeamRow({ member }: { member: { name: string, role: string, image: stri
 
       {/* Mobile visible image */}
       <div className="mt-8 md:hidden w-full h-[300px] relative rounded-2xl overflow-hidden shadow-lg">
-         <Image
+        <Image
           src={member.image}
           alt={member.name}
           sizes="(max-width: 768px) 100vw, 300px"
