@@ -66,7 +66,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Floating Review Cards (Desktop Only) */}
-      <div className="hidden lg:block absolute left-[1%] xl:left-[4%] top-[45%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
+      <div className="hidden lg:block absolute left-[1%] xl:left-[4%] top-[60%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
         <motion.div
           initial={{ opacity: 0, x: -50, rotate: -15 }}
           animate={{ opacity: 1, x: 0, rotate: -6 }}
@@ -84,7 +84,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="hidden lg:block absolute right-[1%] xl:right-[4%] top-[55%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
+      <div className="hidden lg:block absolute right-[1%] xl:right-[4%] top-[60%] -translate-y-1/2 z-20 w-[240px] xl:w-[280px]">
         <motion.div
           initial={{ opacity: 0, x: 50, rotate: 15 }}
           animate={{ opacity: 1, x: 0, rotate: 6 }}
