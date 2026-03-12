@@ -13,18 +13,18 @@ export default function CallToAction() {
   const scale = useTransform(scrollYProgress, [0, 1], [0.1, 5]);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] bg-white">
+    <section ref={containerRef} className="relative h-[110vh] md:h-[200vh] bg-white">
       <div className="sticky top-0 h-[100dvh] overflow-hidden flex items-center justify-center">
-        
+
         {/* The expanding black circle reveal */}
-        <motion.div 
+        <motion.div
           style={{ scale }}
           className="absolute w-[50vh] h-[50vh] bg-black rounded-full pointer-events-none"
         />
 
         {/* Content overlaid on top, masking to white where background is black via blend modes or just waiting until circle is large */}
         <div className="relative z-10 text-center mix-blend-difference">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
