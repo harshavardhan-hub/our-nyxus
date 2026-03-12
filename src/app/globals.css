@@ -104,6 +104,23 @@ html.lenis {
   pointer-events: none;
 }
 
+/* ─── Mobile: native smooth scroll (Lenis is disabled on touch devices) ─── */
+@media (pointer: coarse) {
+  html,
+  body {
+    /* Enable native iOS momentum scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* Allow natural overscroll bounce on mobile */
+    overscroll-behavior-y: auto;
+    scroll-behavior: auto;
+  }
+
+  /* Suppress any leftover Lenis scroll-behaviour overrides on mobile */
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ─── Reduce motion for accessibility ─── */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
